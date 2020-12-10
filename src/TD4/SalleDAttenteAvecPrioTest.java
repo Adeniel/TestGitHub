@@ -24,11 +24,11 @@ class SalleDAttenteAvecPrioTest {
 	
 	@Test	
     void testSalleVide() {
-        assertTrue("La salle doit être vide", salleDAP.estVide()); 
+        assertTrue("La salle doit etre vide", salleDAP.estVide()); 
     }
 	
 	@Test
-	void créerClient () {
+	void creerClient () {
 		@SuppressWarnings("unused")
 		ClientAvecPrio c= new ClientAvecPrio ("Jean", 3);
 	}
@@ -41,14 +41,14 @@ class SalleDAttenteAvecPrioTest {
 	}
 	
 	private void testEntrer(SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c){
-		assertTrue("La salle doit être vide", s.estVide());	
+		assertTrue("La salle doit etre vide", s.estVide());	
 		s.entrer(c);
-		assertTrue("La salle ne doit pas être vide", ! s.estVide()) ;
-		assertTrue("La salle ne doit pas être pleine", ! s.estPleine()) ;
-		assertEquals(1, s.getNbClients(), "La salle doit être de taille 1") ;
-		assertSame(c, s.getProchain(), "Le prochain à sortir doit être le premier entré") ;
+		assertTrue("La salle ne doit pas etre vide", ! s.estVide()) ;
+		assertTrue("La salle ne doit pas etre pleine", ! s.estPleine()) ;
+		assertEquals(1, s.getNbClients(), "La salle doit etre de taille 1") ;
+		assertSame(c, s.getProchain(), "Le prochain a sortir doit etre le premier entre") ;
 		s.sortir();
-		assertTrue("La salle doit être vide", s.estVide()) ;		
+		assertTrue("La salle doit etre vide", s.estVide()) ;		
 	}		
 	
 	@Test
@@ -60,24 +60,24 @@ class SalleDAttenteAvecPrioTest {
 	}
 	
 	private void testEntrerPrioDiff(SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c1, ClientAvecPrio c2){
-		assertTrue("La salle doit être vide", s.estVide());	
+		assertTrue("La salle doit etre vide", s.estVide());	
 		s.entrer(c1);
 		s.entrer(c2);
-		assertTrue("Le client 2 doitêtre le prochain à accéder au RDV", s.getProchain()==c2);		
+		assertTrue("Le client 2 doitetre le prochain a acceder au RDV", s.getProchain()==c2);		
 	}
 	
 	@Test
 	void testMaxPrio() {
         ClientAvecPrio VIP = new ClientAvecPrio("Relou",7);
         salleDAP.entrer(VIP);
-        assertTrue("La priorité doit être de 4",salleDAP.getProchain().getPrio()==prioMax-1);
+        assertTrue("La priorite doit etre de 4",salleDAP.getProchain().getPrio()==prioMax-1);
     }
 	
 	@Test
     void testMoins() {
         ClientAvecPrio clientOsef = new ClientAvecPrio("Tocard",-1);
         salleDAP.entrer(clientOsef);
-        assertTrue("La prioirité doit être de 0",salleDAP.getProchain().getPrio()==0);
+        assertTrue("La prioirite doit etre de 0",salleDAP.getProchain().getPrio()==0);
     }
 	
 	@Test
@@ -94,22 +94,22 @@ class SalleDAttenteAvecPrioTest {
 
 	private void testSallePleine (SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c1, ClientAvecPrio c2, ClientAvecPrio c3, ClientAvecPrio c4, ClientAvecPrio c5) 
 	{
-		assertTrue("La salle doit être vide", s.estVide()) ;
+		assertTrue("La salle doit etre vide", s.estVide()) ;
 		s.entrer(c1); 
-		assertTrue("La salle ne doit pas être vide", ! s.estVide()) ;
-		assertTrue("La salle ne doit pas être pleine", ! s.estPleine()) ;
-		assertEquals(1, s.getNbClients(), "La salle doit être de taille 1") ;
+		assertTrue("La salle ne doit pas etre vide", ! s.estVide()) ;
+		assertTrue("La salle ne doit pas etre pleine", ! s.estPleine()) ;
+		assertEquals(1, s.getNbClients(), "La salle doit etre de taille 1") ;
 		s.entrer(c2);
-		assertTrue("La salle ne doit pas être vide", ! s.estVide()) ;
-		assertTrue("La salle ne doit pas être pleine", ! s.estPleine()) ;
-		assertEquals(2, s.getNbClients(), "La salle doit être de taille 2") ;
+		assertTrue("La salle ne doit pas etre vide", ! s.estVide()) ;
+		assertTrue("La salle ne doit pas etre pleine", ! s.estPleine()) ;
+		assertEquals(2, s.getNbClients(), "La salle doit etre de taille 2") ;
 		s.entrer(c3);
 		s.entrer(c4);
 		s.entrer(c5);
-		assertTrue("La salle ne doit pas être vide", ! s.estVide()) ;
-		assertTrue("La salle doit être pleine", s.estPleine()) ;
-		assertEquals(5, s.getNbClients(), "La salle doit être de taille 5") ;
-		assertSame(c1, s.getProchain(), "Le prochain à sortir doit être le premier entré") ;
+		assertTrue("La salle ne doit pas etre vide", ! s.estVide()) ;
+		assertTrue("La salle doit etre pleine", s.estPleine()) ;
+		assertEquals(5, s.getNbClients(), "La salle doit etre de taille 5") ;
+		assertSame(c1, s.getProchain(), "Le prochain a sortir doit etre le premier entre") ;
 		s.sortir();
 		assertEquals(4, s.getNbClients(), "La salle doit contenir 4 clients") ;
 	}
@@ -129,23 +129,23 @@ class SalleDAttenteAvecPrioTest {
 
 	private void testExtraPersonne (SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c1, ClientAvecPrio c2, ClientAvecPrio c3, ClientAvecPrio c4, ClientAvecPrio c5, ClientAvecPrio c6) 
 	{
-		assertTrue("La salle doit être vide", s.estVide()) ;
+		assertTrue("La salle doit etre vide", s.estVide()) ;
 		s.entrer(c1); 
-		assertTrue("La salle ne doit pas être vide", ! s.estVide()) ;
-		assertTrue("La salle ne doit pas être pleine", ! s.estPleine()) ;
-		assertEquals(1, s.getNbClients(), "La salle doit être de taille 1") ;
+		assertTrue("La salle ne doit pas etre vide", ! s.estVide()) ;
+		assertTrue("La salle ne doit pas etre pleine", ! s.estPleine()) ;
+		assertEquals(1, s.getNbClients(), "La salle doit etre de taille 1") ;
 		s.entrer(c2);
-		assertTrue("La salle ne doit pas être vide", ! s.estVide()) ;
-		assertTrue("La salle ne doit pas être pleine", ! s.estPleine()) ;
-		assertEquals(2, s.getNbClients(), "La salle doit être de taille 2") ;
+		assertTrue("La salle ne doit pas etre vide", ! s.estVide()) ;
+		assertTrue("La salle ne doit pas etre pleine", ! s.estPleine()) ;
+		assertEquals(2, s.getNbClients(), "La salle doit etre de taille 2") ;
 		s.entrer(c3);
 		s.entrer(c4);
 		s.entrer(c5);
-		assertTrue("La salle doit être pleine", s.estPleine()) ;
-		assertEquals(5, s.getNbClients(), "La salle doit être de taille 5") ;
+		assertTrue("La salle doit etre pleine", s.estPleine()) ;
+		assertEquals(5, s.getNbClients(), "La salle doit etre de taille 5") ;
 		s.entrer(c6);
 		assertTrue("Le client n'a pas pu rentrer", s.estPleine());
-		assertSame(c1, s.getProchain(), "Le prochain à sortir doit être le premier entré") ;
+		assertSame(c1, s.getProchain(), "Le prochain a sortir doit etre le premier entre") ;
 		s.sortir();
 		assertEquals(4, s.getNbClients(), "La salle doit contenir 4 clients") ;
 	}
