@@ -13,31 +13,32 @@ public class PAPS<TC> implements SalleDAttente<TC> {
 		//this.nbClients = nbClients;
 		List = new ArrayList<TC>();
 	}
-		
+	
+	/**
+	 * @return capacite de la salle
+	 */
 	@Override
 	public int getCapacite() {
-		// TODO Auto-generated method stub
 		return capacite;
 	}
 
-	// Nombre de clients dans la salle
+	/**
+	 * @return nombre de Clients
+	 */
 	@Override
 	public int getNbClients() {
-		// TODO Auto-generated method stub
 		return List.size();
 	}
 
 	// La salle est vide ?
 	@Override
 	public boolean estVide() {
-		// TODO Auto-generated method stub
 		return List.isEmpty();
 	}
 
 	// La salle est pleine ?
 	@Override
 	public boolean estPleine() {
-		// TODO Auto-generated method stub
 		return List.size()>=getCapacite();
 	}
 
@@ -45,7 +46,6 @@ public class PAPS<TC> implements SalleDAttente<TC> {
 	// (precondition : salle non pleine)
 	@Override
 	public void entrer(TC client) {
-		// TODO Auto-generated method stub
 		if(!this.estPleine()) {
 			List.add(client);
 		}	
@@ -55,7 +55,6 @@ public class PAPS<TC> implements SalleDAttente<TC> {
 	// (precondition : salle non vide)
 	@Override
 	public TC getProchain() {
-		// TODO Auto-generated method stub
 		if(!this.estVide()) {return List.get(0);}
 		else return null;
 	}
@@ -64,7 +63,6 @@ public class PAPS<TC> implements SalleDAttente<TC> {
 	// (precondition : salle non vide)
 	@Override
 	public void sortir() {
-		// TODO Auto-generated method stub
 		if(!this.estVide()) {
 			List.remove(getProchain());
 		}	

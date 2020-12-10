@@ -5,8 +5,7 @@ public class Client {
 	private String nom; 
 	
 	//Constructeur
-	public Client(String nom)
-	{
+	public Client(String nom) {
 		super();
 		this.nom=nom;
 	}
