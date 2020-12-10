@@ -45,7 +45,6 @@ public class SalleDAttentePAPS<TC> extends ArrayList<TC> implements SalleDAttent
 		// (precondition : salle non pleine)
 		@Override
 		public void entrer(TC client) {
-			// TODO Auto-generated method stub
 			if(!this.estPleine()) {
 				List.add(client);
 			}	
@@ -55,7 +54,6 @@ public class SalleDAttentePAPS<TC> extends ArrayList<TC> implements SalleDAttent
 		// (precondition : salle non vide)
 		@Override
 		public TC getProchain() {
-			// TODO Auto-generated method stub
 			if(!this.estVide()) {return List.get(0);}
 			else return null;
 		}
@@ -64,7 +62,6 @@ public class SalleDAttentePAPS<TC> extends ArrayList<TC> implements SalleDAttent
 		// (precondition : salle non vide)
 		@Override
 		public void sortir() {
-			// TODO Auto-generated method stub
 			if(!this.estVide()) {							//assert !estVide();
 				List.remove(getProchain());					//this.remove(0);
 			}

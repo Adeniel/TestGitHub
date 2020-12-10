@@ -2,7 +2,7 @@ package TD4;
 
 public interface SalleDAttente<TC> {
 	
-	// Capacite de la salle
+	// Capacite de la salle
 	public abstract int getCapacite(); 
 	
 	// Nombre de clients dans la salle

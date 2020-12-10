@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 class SalleDAttenteAvecPrioTest {
 
-	private ClientAvecPrio c;
+	//private ClientAvecPrio c;
 	private SalleDAttenteAvecPrio<AvecPrio> salleDAP;
 	private int prioMax = 5;
 	
@@ -29,7 +29,8 @@ class SalleDAttenteAvecPrioTest {
 	
 	@Test
 	void créerClient () {
-		c= new ClientAvecPrio ("Jean", 3);
+		@SuppressWarnings("unused")
+		ClientAvecPrio c= new ClientAvecPrio ("Jean", 3);
 	}
 	
 	@Test
@@ -39,7 +40,7 @@ class SalleDAttenteAvecPrioTest {
 		testEntrer(salleDAP, c1) ;
 	}
 	
-	private void testEntrer(SalleDAttenteAvecPrio s, ClientAvecPrio c){
+	private void testEntrer(SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c){
 		assertTrue("La salle doit être vide", s.estVide());	
 		s.entrer(c);
 		assertTrue("La salle ne doit pas être vide", ! s.estVide()) ;
@@ -58,7 +59,7 @@ class SalleDAttenteAvecPrioTest {
 		testEntrerPrioDiff(salleDAP, c1, c2) ;
 	}
 	
-	private void testEntrerPrioDiff(SalleDAttenteAvecPrio s, ClientAvecPrio c1, ClientAvecPrio c2){
+	private void testEntrerPrioDiff(SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c1, ClientAvecPrio c2){
 		assertTrue("La salle doit être vide", s.estVide());	
 		s.entrer(c1);
 		s.entrer(c2);
@@ -91,7 +92,7 @@ class SalleDAttenteAvecPrioTest {
 		testSallePleine(salleDAP5, c1, c2, c3, c4, c5) ;
 	}
 
-	private void testSallePleine (SalleDAttenteAvecPrio s, ClientAvecPrio c1, ClientAvecPrio c2, ClientAvecPrio c3, ClientAvecPrio c4, ClientAvecPrio c5) 
+	private void testSallePleine (SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c1, ClientAvecPrio c2, ClientAvecPrio c3, ClientAvecPrio c4, ClientAvecPrio c5) 
 	{
 		assertTrue("La salle doit être vide", s.estVide()) ;
 		s.entrer(c1); 
@@ -126,7 +127,7 @@ class SalleDAttenteAvecPrioTest {
 		testExtraPersonne(salleDAP5, c1, c2, c3, c4, c5, c6) ;
 	}
 
-	private void testExtraPersonne (SalleDAttenteAvecPrio s, ClientAvecPrio c1, ClientAvecPrio c2, ClientAvecPrio c3, ClientAvecPrio c4, ClientAvecPrio c5, ClientAvecPrio c6) 
+	private void testExtraPersonne (SalleDAttenteAvecPrio<AvecPrio> s, ClientAvecPrio c1, ClientAvecPrio c2, ClientAvecPrio c3, ClientAvecPrio c4, ClientAvecPrio c5, ClientAvecPrio c6) 
 	{
 		assertTrue("La salle doit être vide", s.estVide()) ;
 		s.entrer(c1); 

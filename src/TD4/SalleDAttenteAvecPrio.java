@@ -9,7 +9,7 @@ public class SalleDAttenteAvecPrio<TC extends AvecPrio> implements SalleDAttente
 	//private ArrayList<TC> [] salle;
 	
 	//Constructeur
-	/* @param capacite = capacité maximum de la salle
+	/* @param capacite = capacite maximum de la salle
 	 * @param maxPrio = level maximum qu'on peut avoir pour les priorités maximums
 	 */
 	public SalleDAttenteAvecPrio(int capacite, int maxPrio) {
@@ -51,14 +51,12 @@ public class SalleDAttenteAvecPrio<TC extends AvecPrio> implements SalleDAttente
 	// La salle est vide ?
 	@Override
 	public boolean estVide() {
-		// TODO Auto-generated method stub
 		return getNbClients()==0;
 	}
 
 	// La salle est pleine ?
 	@Override
 	public boolean estPleine() {
-		// TODO Auto-generated method stub
 		return getNbClients()==capacite;
 	}
 
@@ -66,15 +64,12 @@ public class SalleDAttenteAvecPrio<TC extends AvecPrio> implements SalleDAttente
 	// (precondition : salle non pleine)
 	@Override
 	public void entrer(TC client) {
-		// TODO Auto-generated method stub
 		int prio = client.getPrio();
 		if (!estPleine()) {
 			if(prio>maxPrio) {						//Si la priorité donnée est sup
-				//client.setPrio(maxPrio-1);						//car sinon on ne modifie pas la valeur de get
 				salle.get(maxPrio).add(client);		//.get récupération clé .add rajout
 			}
 			else if (prio<0) {						//Si priorité inf à 0
-				//client.setPrio(0);
 				salle.get(0).add(client);		
 			}
 			else {salle.get(client.getPrio()).add(client);
@@ -102,11 +97,9 @@ public class SalleDAttenteAvecPrio<TC extends AvecPrio> implements SalleDAttente
 	// (precondition : salle non vide)
 	@Override
 	public void sortir() {
-		// TODO Auto-generated method stub
 		if (!estVide()) {
-			TC next = getProchain();				//On récupère le prochain
+			TC next = getProchain();				//On recupere le prochain
 			salle.get(next.getPrio()).remove(next);	//Antinomie de entrer
 		}
-	}
-				
+	}			
 }
