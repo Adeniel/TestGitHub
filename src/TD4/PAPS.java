@@ -13,13 +13,18 @@ public class PAPS<TC> implements SalleDAttente<TC> {
 		//this.nbClients = nbClients;
 		List = new ArrayList<TC>();
 	}
-		
+	
+	/**
+	 * @return capacite de la salle
+	 */
 	@Override
 	public int getCapacite() {
 		return capacite;
 	}
 
-	// Nombre de clients dans la salle
+	/**
+	 * @return nombre de Clients
+	 */
 	@Override
 	public int getNbClients() {
 		return List.size();
