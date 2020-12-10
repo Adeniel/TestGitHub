@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PAPS<TC> implements SalleDAttente<TC> {
 
-	private Integer capacite, nbClients;
+	private Integer capacite;
 	private ArrayList<TC> List; 
 	
 	//Constructeur
